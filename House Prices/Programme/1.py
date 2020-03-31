@@ -169,7 +169,19 @@ regressor = SVR(kernel = 'rbf')
 regressor.fit(X_train, y)
 #########################
 
+#########################
+# Fitting Decision Tree Regression to the dataset
+from sklearn.tree import DecisionTreeRegressor
+regressor = DecisionTreeRegressor(random_state = 0)
+regressor.fit(X_train, y)
+#########################
 
+#########################
+# Fitting Random Forest Regression to the dataset
+from sklearn.ensemble import RandomForestRegressor
+regressor = RandomForestRegressor(n_estimators = 10, random_state = 0)
+regressor.fit(X_train, y)
+#########################
 
 ######################         Test Set      ###############################
 #Importing test Dataset
@@ -361,7 +373,7 @@ submission = pd.DataFrame({
         "SalePrice": y_pred
     })
 
-submission.to_csv('SVM.csv', index=False)
+submission.to_csv('RandomForest2.csv', index=False)
 
 
 
